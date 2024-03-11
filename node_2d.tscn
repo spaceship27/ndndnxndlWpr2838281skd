@@ -1,35 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://47bht10grbix"]
+[gd_scene load_steps=10 format=3 uid="uid://47bht10grbix"]
 
+[ext_resource type="Animation" uid="uid://cn88t7intk7jw" path="res://Speed/animations/wheel_rotating.res" id="1_2f1jn"]
 [ext_resource type="Texture2D" uid="uid://dk65yh34vq1md" path="res://Speed/cars/car1/car-body.png" id="1_33vis"]
 [ext_resource type="Texture2D" uid="uid://mghmg1bxnudx" path="res://Speed/cars/car1/car-wheel.png" id="2_7drk4"]
-
-[sub_resource type="Animation" id="Animation_k3dpt"]
-resource_name = "wheel_rotating"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("wheel1:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [6.28319, 3.14159, 0.0, -3.14159, -6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("wheel2:rotation")
-tracks/1/interp = 3
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [6.28319, 3.14159, 0.0, -3.14159, -6.28319]
-}
+[ext_resource type="Animation" uid="uid://ml0xhfikrj1g" path="res://Speed/animations/brake.res" id="2_vtnet"]
+[ext_resource type="Animation" uid="uid://dgb6dhc4ca27u" path="res://Speed/animations/body_rotating.res" id="3_iqmjs"]
 
 [sub_resource type="Animation" id="Animation_rjd4r"]
 length = 0.001
@@ -93,21 +68,33 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(473.5, 339.813)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(344, 272)]
+}
 
-[sub_resource type="Animation" id="Animation_sdyb1"]
-resource_name = "brake"
-length = 0.25
+[sub_resource type="Animation" id="Animation_g6r3h"]
+resource_name = "move_car"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body:rotation")
-tracks/0/interp = 3
+tracks/0/enabled = false
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.0523599]
+"values": [Vector2(344, 272), Vector2(345, 272)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -116,10 +103,10 @@ tracks/1/path = NodePath("wheel2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(208, 340.5), Vector2(208, 338)]
+"values": [Vector2(208, 340.5), Vector2(209, 340.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -128,34 +115,55 @@ tracks/2/path = NodePath("wheel1:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(470, 340), Vector2(470, 340)]
-}
-
-[sub_resource type="Animation" id="Animation_1kqie"]
-resource_name = "body_rotating"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.010472]
+"values": [Vector2(473.5, 339.813), Vector2(474.5, 339.813)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("wheel2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wheel1:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0174533, 0.0, 0.0174533]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28mei"]
 _data = {
 "RESET": SubResource("Animation_rjd4r"),
-"body_rotating": SubResource("Animation_1kqie"),
-"brake": SubResource("Animation_sdyb1"),
-"wheel_rotating": SubResource("Animation_k3dpt")
+"body_rotating": ExtResource("3_iqmjs"),
+"brake": ExtResource("2_vtnet"),
+"move_car": SubResource("Animation_g6r3h"),
+"wheel_rotating": ExtResource("1_2f1jn")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cs5c2"]
