@@ -1,8 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://47bht10grbix"]
+[gd_scene load_steps=7 format=3 uid="uid://47bht10grbix"]
+
+[ext_resource type="Texture2D" uid="uid://dk65yh34vq1md" path="res://Speed/cars/car1/car-body.png" id="1_33vis"]
+[ext_resource type="Texture2D" uid="uid://mghmg1bxnudx" path="res://Speed/cars/car1/car-wheel.png" id="2_7drk4"]
+
+[sub_resource type="Animation" id="Animation_k3dpt"]
+resource_name = "wheel_rotating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wheel1:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-6.28319, -3.14159, 0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_rjd4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28mei"]
+_data = {
+"RESET": SubResource("Animation_rjd4r"),
+"wheel_rotating": SubResource("Animation_k3dpt")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cs5c2"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../car1")
+libraries = {
+"": SubResource("AnimationLibrary_28mei")
+}
+
+[node name="car1" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cs5c2")
+
+[node name="body" type="Sprite2D" parent="car1"]
+position = Vector2(344, 272)
+scale = Vector2(0.591534, 0.706186)
+texture = ExtResource("1_33vis")
+
+[node name="wheel1" type="Sprite2D" parent="car1"]
+position = Vector2(473.5, 339.813)
+scale = Vector2(0.725, 0.765756)
+texture = ExtResource("2_7drk4")
+
+[node name="wheel2" type="Sprite2D" parent="car1"]
+position = Vector2(208, 340.5)
+scale = Vector2(0.75, 0.754202)
+texture = ExtResource("2_7drk4")
