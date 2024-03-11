@@ -81,6 +81,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(208, 340.5)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wheel1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(473.5, 339.813)]
+}
 
 [sub_resource type="Animation" id="Animation_sdyb1"]
 resource_name = "brake"
@@ -108,6 +120,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(208, 340.5), Vector2(208, 338)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wheel1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(470, 340), Vector2(470, 340)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28mei"]
